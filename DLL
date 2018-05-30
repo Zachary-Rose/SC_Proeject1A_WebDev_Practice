@@ -1,0 +1,18 @@
+create database SMASHCOACH;
+
+CREATE TABLE User (
+AccountNumber 	 VARCHAR(8) 		NOT NULL,
+FNAME 			 VARCHAR(30) 		NOT NULL,
+LNAME 			 VARCHAR (30) 		NOT NULL,
+StreetNumber 	 INTEGER 			NOT NULL,
+Street 			 VARCHAR(15) 		NOT NULL,
+City 			 VARCHAR(15) 		NOT NULL,
+PhoneNumber 	 INTEGER 			NOT NULL,  #phone numbers are different lenghts in different countries
+Email 			 VARCHAR(30) 		NOT NULL,
+Password 		 VARCHAR(20) 		NOT NULL,
+CreditCardNumber VARCHAR(16) 		,
+ExpDate 		 NUMERIC(4,0) 		,        # month(2)  and year(2)
+IsAdmin          NUMERIC(1,0)       NOT NULL,
+PRIMARY KEY (AccountNumber) # or email
+);
+
