@@ -1,5 +1,29 @@
-<!DOCTYPE html>
-<html>
+
+<?php
+session_start();
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "smashcoach";
+
+//create connection
+$conn = new mysqli($servername, $username, $password,$dbname);
+//check connection
+if ($conn -> connect_error) {
+  die("connection failed: " . $conn->connect_error);
+}
+                
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+ }  
+
+?>
+
+<html lang="en">
 <title>SmashCoach</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -73,10 +97,12 @@ body {font-family: "Lato", sans-serif}
 <script>
 function myMap() {
 
+//List<Markers> markers; 
+
 var mylatLng = new google.maps.LatLng(43.6, -79.4)
 
 var mapProp= {
-    center:new google.maps.LatLng(43.6, -79.4),
+    center:new google.maps.LatLng(44.1, -75.4),
     zoom:7,
 };
 var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
@@ -86,6 +112,7 @@ var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 	map: map,
 	title: 'TEST MARKER'
 	});
+
 
 }
 
